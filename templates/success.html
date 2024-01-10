@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Success
+{% endblock %}
+
+{% block content %}
+    <div class="img-main-div">
+        <div class="img-div">
+            <img src="{{ url_for('static', filename='img/Success with arrow.png') }}" alt="">
+            <br>
+            <h1>
+                Everything went successful!!!
+            </h1>
+            <a href="{{url_for('download_file', id=id)}}">You can download your video here</a>
+        </div>
+    </div>
+{% endblock %}

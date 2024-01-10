@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    History of video downloads
+{% endblock %}
+
+{% block content %}
+    <div>
+        <h1>History of video downloads</h1>
+    </div>
+    <br>
+    {% for video in videos %}
+        <div class="video-div form-control">
+            <div>
+                <video width="400" height="100%" controls>
+                    <source src="{{ video.path }}" type="video/mp4">
+                    <source src="{{ video.path }}" type="video/mp3">
+                </video>
+            </div>
+            <div>
+                <h3>{{ video.title }}</h3><br>
+                <h6>Link: {{ video.link }}</h6>
+                <a href="{{ url_for('delete_video', id=id, video_id=video.id) }}" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
